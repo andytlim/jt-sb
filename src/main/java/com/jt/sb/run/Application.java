@@ -1,8 +1,6 @@
-package org.tiaa.bi.batch.run;
+package com.jt.sb.run;
 
 import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,8 +11,8 @@ import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
-import org.tiaa.bi.batch.batch.CustomJobConfig;
-import org.tiaa.bi.batch.config.ApplicationProperties;
+import com.jt.sb.batch.CustomJobConfig;
+import com.jt.sb.conf.ApplicationProperties;
 
 @Component
 public class Application {

@@ -1,4 +1,4 @@
-package org.tiaa.bi.batch.model;
+package com.jt.sb.model;
 
 public class Row {
 	String someField;

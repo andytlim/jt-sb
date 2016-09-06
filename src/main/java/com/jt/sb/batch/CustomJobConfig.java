@@ -1,4 +1,4 @@
-package org.tiaa.bi.batch.batch;
+package com.jt.sb.batch;
 
 import java.net.MalformedURLException;
 
@@ -23,8 +23,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.tiaa.bi.batch.config.ApplicationProperties;
-import org.tiaa.bi.batch.model.Row;
+import com.jt.sb.conf.ApplicationProperties;
+import com.jt.sb.model.Row;
 
 @Configuration
 @EnableBatchProcessing

@@ -1,4 +1,4 @@
-package org.tiaa.bi.batch.config;
+package com.jt.sb.conf;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

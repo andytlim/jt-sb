@@ -1,4 +1,4 @@
-package org.tiaa.bi.batch.batch;
+package com.jt.sb.batch;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,7 +6,7 @@ import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.annotation.AfterStep;
 import org.springframework.batch.core.annotation.BeforeStep;
 import org.springframework.batch.item.ItemProcessor;
-import org.tiaa.bi.batch.model.Row;
+import com.jt.sb.model.Row;
 
 public class CustomRowProcessor implements ItemProcessor<Row, Row> {
 

@@ -1,8 +1,8 @@
-package org.tiaa.bi.batch.batch;
+package com.jt.sb.batch;
 
 import org.springframework.batch.item.file.mapping.FieldSetMapper;
 import org.springframework.batch.item.file.transform.FieldSet;
-import org.tiaa.bi.batch.model.Row;
+import com.jt.sb.model.Row;
 
 public class CustomRowMapper implements FieldSetMapper<Row> {
 	

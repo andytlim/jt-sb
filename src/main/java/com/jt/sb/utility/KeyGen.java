@@ -1,4 +1,4 @@
-package org.tiaa.bi.batch.utility;
+package com.jt.sb.utility;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
