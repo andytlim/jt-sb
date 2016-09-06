@@ -1,15 +1,15 @@
-apply plugin: 'tiaa-java'
+apply plugin: 'java'
 apply plugin: 'eclipse'
 
 project.ext {
-    projectName = "JavaTemplateSpringBatch"
+    projectName = "jt-sb"
     projectVersion = ""
 }
 
 jar {
 	manifest {
 		attributes (
-			'Main-Class': 'org.tiaa.bi.batch.run.Application'
+			'Main-Class': 'com.jt.sb.run.Application'
 	 	)
 	}
 	from {
