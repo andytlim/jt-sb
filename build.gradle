@@ -1,0 +1,23 @@
+apply plugin: 'tiaa-java'
+apply plugin: 'eclipse'
+
+project.ext {
+    projectName = "JavaTemplateSpringBatch"
+    projectVersion = ""
+}
+
+jar {
+	manifest {
+		attributes (
+			'Main-Class': 'org.tiaa.bi.batch.run.Application'
+	 	)
+	}
+	from {
+		sourceSets.main.allJava // Include source files
+	}
+	from {
+    	configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } // Include compile dependencies
+  	}
+    baseName = "${projectName}"
+    version =  "${projectVersion}"
+}
