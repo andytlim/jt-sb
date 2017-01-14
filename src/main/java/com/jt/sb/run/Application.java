@@ -11,14 +11,15 @@ import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
-import com.jt.sb.batch.CustomJobConfig;
-import com.jt.sb.conf.ApplicationProperties;
+
+import com.jt.sb.conf.ApplicationConfig;
+import com.jt.sb.conf.JobConfig;
 
 @Component
 public class Application {
 
 	protected static Logger log = LoggerFactory.getLogger(Application.class);
-
+	
 	public static void main(String[] args) {
 		long startTime = System.currentTimeMillis();
 		new Application().run();				
@@ -29,18 +30,19 @@ public class Application {
 	public void run() {
 		try {
 			log.info("Starting spring batch process...");
-			ApplicationContext jobContext = new AnnotationConfigApplicationContext(CustomJobConfig.class);
-	        JobLauncher jobLauncher = (JobLauncher) jobContext.getBean("jobLauncher");	        
+			ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+			ApplicationContext jobContext = new AnnotationConfigApplicationContext(JobConfig.class);
+	        JobLauncher jobLauncher = (JobLauncher) jobContext.getBean("jobLauncher");
+	        ApplicationConfig appConfig = (ApplicationConfig) context.getBean("appConfig");
 	       	        
-	        String uri = ApplicationProperties.get("source.dir");
+	        String uri = appConfig.get("source.dir");
+	        System.out.println(uri);
 	        File dir = new File(uri);
 	        File[] directoryListing = dir.listFiles();
 	        
 	        // Iterate through nigo datafiles in designated path
-	        if (directoryListing != null) {
-	        	
-	        	for (File datafile : directoryListing) {
-	        			        		
+	        if (directoryListing != null) {	        	
+	        	for (File datafile : directoryListing) {	        			        		
         			log.info("Processing " + datafile + "...");
         			
         			// Get job bean

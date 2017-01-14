@@ -1,23 +1,31 @@
 package com.jt.sb.conf;
 
-import javax.sql.DataSource;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 
 @Configuration
-@ComponentScan(basePackages = "org.tiaa.bi.batch")
+@ComponentScan(basePackages = "com.jt.sb")
+@PropertySource("classpath:application.properties")
 public class ApplicationConfig {
 	
-    @Bean(name="someDataSource")
-    public DataSource burstingDataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("teradata.driver");
-        dataSource.setUrl(ApplicationProperties.get("some.host"));
-        dataSource.setUsername(ApplicationProperties.get("some.username"));
-        dataSource.setPassword(ApplicationProperties.get("some.password"));
-        return dataSource;
-    }
+	protected static Logger log = LoggerFactory.getLogger(ApplicationConfig.class);
+	
+	@Autowired
+	private Environment env;
+	
+	@Bean
+	public ApplicationConfig appConfig() {
+		return new ApplicationConfig();
+	}
+
+	public String get(String key) {
+		return env.getProperty(key);
+	}
 }
+

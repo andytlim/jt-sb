@@ -8,12 +8,12 @@ import org.springframework.batch.core.annotation.BeforeStep;
 import org.springframework.batch.item.ItemProcessor;
 import com.jt.sb.model.Row;
 
-public class CustomRowProcessor implements ItemProcessor<Row, Row> {
+public class RowProcessor implements ItemProcessor<Row, Row> {
 
 	protected static Logger log = LoggerFactory
-			.getLogger(CustomRowProcessor.class);
+			.getLogger(RowProcessor.class);
 	
-	public CustomRowProcessor() {
+	public RowProcessor() {
 	}
 	
 	@Override

@@ -5,3 +5,4 @@ target
 .jazzignore
 .project
 .classpath
+/bin/
