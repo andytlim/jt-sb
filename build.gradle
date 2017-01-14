@@ -9,9 +9,8 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
-project.ext {
-    projectName = "jt-sb"
-}
+// Apply the application plugin to add support for building an application
+apply plugin: 'application'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -35,17 +34,19 @@ dependencies {
     testCompile 'org.springframework:spring-test:4.2.5.RELEASE'
 }
 
+mainClassName = mainClass
+
 jar {
 	manifest {
 		attributes (
-			'Main-Class': 'com.jt.sb.run.Application'
+			'Main-Class': mainClass
 	 	)
 	}
 	from {
 		sourceSets.main.allJava // Include source files
 	}
 	from {
-    	configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } // Include compile dependencies
-  	}
-    baseName = "${projectName}"
+		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } // Include compile dependencies
+	}
+    baseName = projectName
 }
